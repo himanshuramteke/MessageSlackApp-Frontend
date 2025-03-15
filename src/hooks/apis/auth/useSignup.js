@@ -7,8 +7,8 @@ export const useSignup = () => {
    
     const { isPending, isSuccess, error, mutateAsync: signupMutation } = useMutation({
         mutationFn: signUpRequest,
-        onSuccess: (data) => {
-            console.log('Successfully signed up', data);
+        onSuccess: (response) => {
+            console.log('Successfully signed up', response);
 
             toast.success('Successfully signed up', {
                 description: 'You will be redirected to the login page in a few seconds',
