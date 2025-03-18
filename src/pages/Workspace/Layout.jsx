@@ -1,9 +1,11 @@
+import { WorkspaceNavbar } from '@/components/organisms/Workspace/WorkspaceNavbar';
 import { WorkspaceSideBar } from '@/components/organisms/Workspace/WorkspaceSideBar';
 
 export const WorkspaceLayout = ({ children }) => {
     return (
         <div className="h-[100vh]">
-          <div className="flex h-full">
+            <WorkspaceNavbar />
+          <div className="flex h-[calc(100vh-40px)]">
             <WorkspaceSideBar />
             {children}
           </div>
