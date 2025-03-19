@@ -39,7 +39,7 @@ export const fetchWorkspaceDetailsRequest = async ({ workspaceId, token }) => {
     console.log('Workspace ID before sending request:', workspaceId, typeof workspaceId);
 
     if (typeof workspaceId === 'object' && workspaceId?._id) {
-        workspaceId = workspaceId._id.toString(); // Extract _id if it's an object
+        workspaceId = workspaceId._id.toString();
     }
 
     try {
