@@ -1,5 +1,4 @@
 import { ChevronDownIcon, ListFilterIcon, SquarePenIcon } from 'lucide-react';
-import { useEffect } from 'react';
 
 import { Button } from '@/components/ui/button';
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuSeparator, DropdownMenuTrigger } from '@/components/ui/dropdown-menu';
@@ -8,21 +7,19 @@ import { useWorkspacePreferencesModal } from '@/hooks/context/useWorkspacePrefer
 
 export const WorkspacePanelHeader = ({ workspace }) => {
 
-    const workspacemembers = workspace?.members;
+   console.log('workspace is', workspace);
 
-    const { auth } = useAuth();
+   const workspacemembers = workspace?.members;
 
-    console.log(auth);
-    
-    const isLoggedInUserAdminOfWorkspace = workspacemembers?.find(member => member.memberId === auth?.user?._id && member.role === 'admin');
+   const { auth } = useAuth();
 
-    console.log(isLoggedInUserAdminOfWorkspace);
+   console.log(auth);
 
-    const { openPreferences, setOpenPreferences } = useWorkspacePreferencesModal();
+   const isLoggedInUserAdminOfWorkspace = workspacemembers?.find(member => member.memberId === auth?.user?._id && member.role === 'admin');
 
-    useEffect(() => {
-      console.log('openPreferences is', openPreferences); 
-    }, [openPreferences]);
+   console.log(isLoggedInUserAdminOfWorkspace);
+
+   const { setOpenPreferences, setInitialValue } = useWorkspacePreferencesModal();
 
     return (
         <div
@@ -62,7 +59,10 @@ export const WorkspacePanelHeader = ({ workspace }) => {
                          <>
                              <DropdownMenuItem
                                  className='cursor-pointer py-2'
-                                 onClick={() => setOpenPreferences(true)}
+                                 onClick={() => {
+                                    setOpenPreferences(true);
+                                    setInitialValue(workspace?.name);
+                                 }}
                              >
                                  Preferences
                              </DropdownMenuItem>
