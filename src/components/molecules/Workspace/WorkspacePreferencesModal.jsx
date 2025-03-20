@@ -18,12 +18,13 @@ export const WorkspacePreferencesModal = () => {
    const navigate = useNavigate();
    const [workspaceId, setWorkspaceId] = useState(null);
    const [editOpen, setEditOpen] = useState(false);
-   const [renameValue, setRenameValue] = useState(workspace?.name);
+   
 
    const { deleteWorkspaceMutation } = useDeleteWorkspace(workspaceId);
    const { initialValue, openPreferences, setOpenPreferences, workspace } = useWorkspacePreferencesModal(); 
    const { isPending, updateWorkspaceMutation } = useUpdateWorkspace(workspaceId);
-
+   const [renameValue, setRenameValue] = useState(workspace?.name);
+   
    const { confirmation, ConfirmDialog } = useConfirm({ title: 'Do you want to delete the workspace?', message: 'This action cannot be undone.'});
 
    const { confirmation: updateConfirmation, ConfirmDialog: UpdateDialog } = useConfirm({ title: 'Do you want to update the workspace?', message: 'This action cannot be undone.' });
