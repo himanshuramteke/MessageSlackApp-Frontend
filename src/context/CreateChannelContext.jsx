@@ -4,11 +4,11 @@ const CreateChannelContext = new createContext();
 
 export const CreateChannelContextProvider = ({ children }) => {
 
-    const [openCreateWorkspaceModal, setOpenCreateWorkspaceModal] = useState(false);
+    const [openCreateChannelModal, setOpenCreateChannelModal] = useState(false);
 
     return (
         <CreateChannelContext.Provider
-           value={{ openCreateWorkspaceModal, setOpenCreateWorkspaceModal }}
+           value={{ openCreateChannelModal, setOpenCreateChannelModal }}
         >
           {children}
         </CreateChannelContext.Provider>
