@@ -1,6 +1,6 @@
 import { useMutation } from '@tanstack/react-query';
 
-import { addChannelToWorkspaceRequest } from '@/api/workspaces';
+import { addChannelToWorkspaceRequest } from '@/apis/workspaces';
 import { useAuth } from '@/hooks/context/useAuth';
 
 export const useAddChannelWorkspace = () => {

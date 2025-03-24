@@ -1,7 +1,7 @@
 import { useMutation } from '@tanstack/react-query';
 import { toast } from 'sonner';
 
-import { signUpRequest } from '@/api/auth';
+import { signUpRequest } from '@/apis/auth';
 
 export const useSignup = () => {
    

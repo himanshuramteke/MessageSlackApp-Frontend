@@ -1,6 +1,6 @@
 import { useMutation } from '@tanstack/react-query';
 
-import { joinWorkspaceRequest } from '@/api/workspaces';
+import { joinWorkspaceRequest } from '@/apis/workspaces';
 import { useAuth } from '@/hooks/context/useAuth';
 
 export const useJoinWorkspaceRequest = (workspaceId) => {

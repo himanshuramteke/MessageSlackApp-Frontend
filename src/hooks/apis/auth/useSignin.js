@@ -1,7 +1,7 @@
 import { useMutation } from '@tanstack/react-query';
 import { toast } from 'sonner';
 
-import { signInRequest } from '@/api/auth';
+import { signInRequest } from '@/apis/auth';
 import { useAuth } from '@/hooks/context/useAuth';
 
 export const useSignin = () => {
