@@ -1,19 +1,15 @@
 import 'quill/dist/quill.snow.css'; // ES6
 
+import { ImageIcon } from 'lucide-react';
 import Quill from 'quill';
 import { useEffect, useRef, useState } from 'react';
 import { PiTextAa } from 'react-icons/pi';
 
 import { Button } from '@/components/ui/button';
 
-export const Editor = ({
-    variant = 'create',
-    onSubmit,
-    onCancel,
-    placeholder,
-    disabled,
-    defaultValue
-}) => {
+import { Hint } from '../Hint/Hint';
+
+export const Editor = () => {
 
     const [isToolbarVisible, setIsToolbarVisible] = useState(false);
 
@@ -43,7 +39,7 @@ export const Editor = ({
             modules: {
                 toolbar: [
                     ['bold', 'italic', 'underline', 'strike'],
-                    ['link', 'image'],
+                    ['link',],
                     [{ list: 'ordered' }, { list: 'bullet' }],
                     ['clean']
                 ],
@@ -72,7 +68,7 @@ export const Editor = ({
         quillRef.current = quill;
         quillRef.current.focus();
 
-        quill.setContents(defaultValue.current);
+        quill.setContents(defaultValueRef.current);
 
     }, []);
 
@@ -86,6 +82,7 @@ export const Editor = ({
                 <div className='h-full ql-custom' ref={containerRef}/>
 
                 <div className='flex px-2 pb-2 z-[5]'>
+                  <Hint label={!isToolbarVisible ? 'Show toolbar' : 'Hide toolbar'} side='bottom' align='center'>
                   <Button
                     size='iconSm'
                     variant='ghost'
@@ -94,6 +91,18 @@ export const Editor = ({
                   >
                     <PiTextAa className='size-4' />
                   </Button>
+                  </Hint>
+
+                  <Hint label="Image">
+                    <Button
+                       size='iconSm'
+                       variant='ghost'
+                       disabled={false}
+                       onClick={() => {}}
+                    >
+                        <ImageIcon className='size-4' />
+                    </Button>
+                  </Hint>
                 </div>
             </div>
 
