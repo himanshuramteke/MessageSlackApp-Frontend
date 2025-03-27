@@ -1,4 +1,5 @@
 /** @type {import('tailwindcss').Config} */
+import * as tailwindcssanimate from 'tailwindcss-animate';
 export default {
     darkMode: ['class'],
     content: [
@@ -61,7 +62,7 @@ export default {
   		}
   	}
   },
-  // eslint-disable-next-line no-undef
-  plugins: [require('tailwindcss-animate')],
+   
+  plugins: [tailwindcssanimate],
 };
 
