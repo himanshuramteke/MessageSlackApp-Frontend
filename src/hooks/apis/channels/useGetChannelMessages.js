@@ -1,8 +1,7 @@
 import { useQuery } from '@tanstack/react-query';
 
 import { getPaginatedMessages } from '@/apis/channels';
-
-import { useAuth } from '../../context/useAuth';
+import { useAuth } from '@/hooks/context/useAuth';
 
 export const useGetChannelMessages = (channelId) => {
 
